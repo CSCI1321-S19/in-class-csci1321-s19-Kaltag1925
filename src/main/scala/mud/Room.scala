@@ -1,6 +1,6 @@
-import scala.xml.XML
-
 package mud
+
+import scala.xml.XML
 
 class Room(val name: String, 
     private val desc: String,
