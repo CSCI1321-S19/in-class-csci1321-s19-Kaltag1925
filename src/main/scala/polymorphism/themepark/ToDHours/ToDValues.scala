@@ -33,7 +33,7 @@ object ToDValues extends App {
  
   worker1(12) = "Kyle"
   
-  val totalRiders = riders1.combine(riders2)(o1, o2: Option[Int]) => (o1, o2) match {
+  val totalRiders = riders1.combine(riders2)((o1, o2: Option[Int]) => (o1, o2) match {
     case (None, None) => None
     case (Some(a), None) => Some(a)
     case (None, Some(b)) => Some(b)
