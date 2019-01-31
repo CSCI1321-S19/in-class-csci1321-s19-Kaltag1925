@@ -44,7 +44,7 @@ object ToDValues extends App {
   
   def apply[A](): ToDValues[A] = new ToDValues[A](Array.fill(24)(None))
   def apply[A](a: A*): ToDValues[A] = {
-    val opts = a.map(Option(_))
+    val opts = a.map(Option(_)).toArray
     new ToDValues[A](if (opts.length < 24) opts.padTo(24, None) else if (opts.length > 24)
       opts.take(24) else opts)
   }
