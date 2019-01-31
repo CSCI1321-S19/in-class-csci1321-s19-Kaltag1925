@@ -10,7 +10,7 @@ class MutableRectangle(protected var _width: Double, protected var _height: Doub
   def height = _height
   def height_=(h: Double) = _height = h
   
-  override def color = _color
+  def color = _color
   def color_=(c: Color) = _color = c
   
   override def area: Double = width * height
