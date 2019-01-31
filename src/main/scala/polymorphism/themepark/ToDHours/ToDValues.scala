@@ -12,7 +12,7 @@ class ToDValues[A] private (private val values: Array[Option[A]]) {
     values(hour) = None
   }
   
-  def combine[B, C](o: ToDValues[A])(f: (Option[A], Option[B]) => Option[C]): ToDValues[C] = {
+  def combine[B, C](o: ToDValues[B])(f: (Option[A], Option[B]) => Option[C]): ToDValues[C] = {
     val ret = ToDValues[C]()
     for((v, i) <- (values, o.values).zipped.map((v1, v2) => f(v1, v2)).zipWithIndex) {
       ret.values(i) = v
@@ -42,7 +42,7 @@ object ToDValues extends App {
   
   totalRiders.values.foreach(println)
   
-  def apply[A](): ToDValues[A] = new ToDValues()[A](Array.fill(24)(None))
+  def apply[A](): ToDValues[A] = new ToDValues[A](Array.fill(24)(None))
   def apply[A](a: A*): ToDValues[A] = {
     val opts = a.map(Option(_))
     new ToDValues[A](if (opts.length < 24) opts.padTo(24, None) else if (opts.length > 24)
