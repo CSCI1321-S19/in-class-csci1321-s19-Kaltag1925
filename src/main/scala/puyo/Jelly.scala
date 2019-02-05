@@ -1,7 +1,9 @@
 package puyo
 
-class Jelly extends Daddyo {
-  def x: Int = ???
-  def y: Int = ???
-  def color: Int = ???
+class Jelly(val x: Int, val y: Int) extends Boba {
+  def color: PuyoColor.Value = PuyoColor.Gray
+  
+  override def fall(): Jelly = {
+    new Jelly(x , y+1)
+  }
 }
