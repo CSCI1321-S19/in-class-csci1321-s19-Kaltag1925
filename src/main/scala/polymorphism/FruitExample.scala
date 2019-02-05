@@ -10,7 +10,7 @@ class Fruit {
 }
 
 object FruitExample {
-  makeBreakfastShake(new Banana())
+/*  makeBreakfastShake(new Banana())
   makeBreakfastShake(new Apple())
   
   def makeBreakfastShake(fruit: Fruit): Unit = {
@@ -20,5 +20,5 @@ object FruitExample {
     if (fruit.fractionLiquidContent < 0.3) blender += juice
     blender += ice
     blender.blend
-  }
+  }*/
 }
