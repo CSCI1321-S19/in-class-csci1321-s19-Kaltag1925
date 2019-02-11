@@ -15,7 +15,8 @@ class Renderer(gc: GraphicsContext) {
       drawBoba(boba)
     }
 
-    //TODO - Draw currentdrawBoba
+    drawBoba(board.current.p1)
+    drawBoba(board.current.p2)
     
   }
 
