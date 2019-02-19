@@ -11,17 +11,23 @@ class Board {
 
   private val fallInterval = 1d
   private var fallDelay = 0d
+  private val moveInterval = 0.1
+  private var moveDelay = 0d
 
   def update(delay: Double): Unit = {
-    if(leftHeld) _current = _.current.move(-1, 0)
-    
+    moveDelay += delay
+    if (moveDelay > moveInterval) {
+      moveDelay = 0
+      if (leftHeld) _current = _current.move(-1, 0)
+      if (rightHeld) _current = _current.move(1, 0)
+    }
     fallDelay += delay
     if (fallDelay > fallInterval) {
       _current = _current.move(0, -1)
       fallDelay = 0d
     }
   }
-  
+
   //// Movement ////
 
   // Up //
@@ -43,4 +49,9 @@ class Board {
   private var rightHeld = false
   def rightPressed(): Unit = rightHeld = true
   def rightReleased(): Unit = rightHeld = false
+}
+
+object Board {
+  val Width = 6
+  val Height = 12
 }
