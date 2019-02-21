@@ -1,8 +1,9 @@
 package basics
 
-class Entity(private var x: Double = 0d,
-  private var y: Double = 0d) {
-  
+class Entity(  
+    private var x: Double,
+    private var y: Double
+) {
   private var width = 1.0
   private var height = 1.0
   
